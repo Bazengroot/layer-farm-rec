@@ -34,9 +34,12 @@ exports.eggGradingService = {
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
         })
+            .select()
             .single();
         if (batchError)
             throw batchError;
+        if (!batch)
+            throw new Error('Failed to create grading batch');
         // Insert grade details
         const gradeInserts = grades.map((g) => ({
             id: (0, uuid_1.v4)(),

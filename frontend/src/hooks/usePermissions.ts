@@ -1,4 +1,3 @@
-import { create } from '@/lib/queryClient';
 import { supabase } from '@/services/supabaseClient';
 import { useAuth } from '@/context/AuthContext';
 

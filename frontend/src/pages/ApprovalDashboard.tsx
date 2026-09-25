@@ -6,7 +6,7 @@ import {
   CardContent, 
   CardHeader, 
   CardTitle 
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { 
   Table, 
   TableBody, 
@@ -14,13 +14,13 @@ import {
   TableHead, 
   TableHeader, 
   TableRow 
-} from '@/components/ui/table';
+} from '@/components/ui/Table';
 import { 
   Button 
-} from '@/components/ui/button';
+} from '@/components/ui/Button';
 import { 
   Badge 
-} from '@/components/ui/badge';
+} from '@/components/ui/Badge';
 import { 
   CheckCircle, 
   XCircle, 

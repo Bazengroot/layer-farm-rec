@@ -50,7 +50,7 @@ export class DashboardService {
   /**
    * Site Manager Dashboard metrics
    */
-  public async getSiteManagerDashboard(siteId?: string) {
+  public async getSiteManagerDashboard(_siteId?: string) {
     const { data: houses } = await supabaseAdmin.from('houses').select('id, name, farm_id').limit(10);
     const { data: flocks } = await supabaseAdmin.from('flocks').select('id, name, initial_count').limit(10);
 

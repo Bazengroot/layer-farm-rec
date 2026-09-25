@@ -6,16 +6,16 @@ import {
   CardContent, 
   CardHeader, 
   CardTitle 
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { 
   Input 
-} from '@/components/ui/input';
+} from '@/components/ui/Input';
 import { 
   Label 
 } from '@/components/ui/label';
 import { 
   Button 
-} from '@/components/ui/button';
+} from '@/components/ui/Button';
 import { 
   Select, 
   SelectContent, 
@@ -26,7 +26,7 @@ import {
 import { 
   Alert, 
   AlertDescription 
-} from '@/components/ui/alert';
+} from '@/components/ui/Alert';
 import { 
   Loader2, 
   Save, 
@@ -108,12 +108,11 @@ export const DailyRecordingPage: React.FC = () => {
 
       const { data, error } = await supabase
         .from('daily_population_records')
-        .select('closing_population')
-        .innerJoin('daily_flock_records', 'daily_population_records.daily_flock_record_id = daily_flock_records.id')
+        .select('closing_population, daily_flock_records!inner(flock_id, record_date, status)')
         .eq('daily_flock_records.flock_id', context.flockId)
         .eq('daily_flock_records.record_date', prevDate)
         .eq('daily_flock_records.status', 'Approved')
-        .single();
+        .maybeSingle();
       
       if (error && error.code !== 'PGRST116') throw error; // PGRST116 is "no rows found"
       return data;
@@ -306,21 +305,19 @@ export const DailyRecordingPage: React.FC = () => {
           <div className="space-y-2">
             <Label>Flock</Label>
             <Select 
-              onValueChange={(val) => {
+              value={context.flockId}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                const val = e.target.value;
                 setContext(prev => ({ ...prev, flockId: val }));
                 setFormData(prev => ({ ...prev, flockId: val }));
               }}
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Select Flock" />
-              </SelectTrigger>
-              <SelectContent>
-                {flocks?.map(flock => (
-                  <SelectItem key={flock.id} value={flock.id}>
-                    {flock.flock_code}
-                  </SelectItem>
-                ))}
-              </SelectContent>
+              <option value="">Select Flock</option>
+              {flocks?.map(flock => (
+                <option key={flock.id} value={flock.id}>
+                  {flock.flock_code}
+                </option>
+              ))}
             </Select>
           </div>
           <div className="space-y-2">

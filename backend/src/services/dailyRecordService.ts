@@ -2,7 +2,7 @@
 // Service layer for daily recording engine
 // Provides functions to create, update drafts, submit, approve, reject, and record corrections.
 
-import supabaseAdmin from '../utils/supabaseAdmin';
+import { supabaseAdmin } from '../utils/supabaseAdmin';
 import { v4 as uuidv4 } from 'uuid';
 
 // Types (simplified). In a full implementation you would import generated types or define interfaces.
@@ -55,7 +55,7 @@ export async function updateDraft(id: string, updates: Partial<DailyFlockRecord>
  * which validates business rules in a transaction and flips the status to Submitted.
  */
 export async function submitRecord(id: string, recorderId: string) {
-  const { data, error } = await supabaseAdmin.rpc('submit_daily_record', {
+  const { error } = await supabaseAdmin.rpc('submit_daily_record', {
     p_record_id: id,
     p_recorder_id: recorderId,
   });

@@ -3,7 +3,7 @@ export interface AuthUser {
   role: string | null;
   email?: string;
   org_id?: string;
-  organization_id: string; // Made required for TS
+  organization_id?: string;
 }
 
 declare global {

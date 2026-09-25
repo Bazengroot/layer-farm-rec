@@ -1,9 +1,6 @@
 // backend/src/tests/phase8_operations.test.ts
 
-import { InventoryService } from '../services/inventoryService';
-import { ExpenseService } from '../services/expenseService';
-import { TaskService } from '../services/taskService';
-import { EquipmentService } from '../services/equipmentService';
+
 
 describe('Phase 8 Operations Unit Tests', () => {
   describe('Inventory Delta Calculations', () => {

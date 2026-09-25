@@ -1,8 +1,6 @@
 // backend/src/tests/phase10_mobile_workflow.test.ts
 
-import { NotificationService } from '../services/notificationService';
-import { OfflineSyncService } from '../services/offlineSyncService';
-import { PerformanceKPIService } from '../services/performanceKPIService';
+
 
 describe('Phase 10 Mobile Farm Operations & Usability End-to-End Workflow', () => {
   describe('Full Operational Workflow Chain', () => {

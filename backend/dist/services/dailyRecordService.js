@@ -2,9 +2,6 @@
 // src/services/dailyRecordService.ts
 // Service layer for daily recording engine
 // Provides functions to create, update drafts, submit, approve, reject, and record corrections.
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDraft = createDraft;
 exports.updateDraft = updateDraft;
@@ -14,14 +11,14 @@ exports.rejectRecord = rejectRecord;
 exports.requestCorrection = requestCorrection;
 exports.getFullRecord = getFullRecord;
 exports.listRecords = listRecords;
-const supabaseAdmin_1 = __importDefault(require("../utils/supabaseAdmin"));
+const supabaseAdmin_1 = require("../utils/supabaseAdmin");
 const uuid_1 = require("uuid");
 /**
  * Create a new daily record in Draft status.
  * The caller must ensure foreign‑key ids are valid.
  */
 async function createDraft(record) {
-    const { data, error } = await supabaseAdmin_1.default
+    const { data, error } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .insert({
         ...record,
@@ -37,7 +34,7 @@ async function createDraft(record) {
  * Update an existing draft. Only allowed while status is Draft.
  */
 async function updateDraft(id, updates) {
-    const { data, error } = await supabaseAdmin_1.default
+    const { data, error } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .update({ ...updates, updated_at: new Date().toISOString() })
         .eq('id', id)
@@ -52,14 +49,14 @@ async function updateDraft(id, updates) {
  * which validates business rules in a transaction and flips the status to Submitted.
  */
 async function submitRecord(id, recorderId) {
-    const { data, error } = await supabaseAdmin_1.default.rpc('submit_daily_record', {
+    const { error } = await supabaseAdmin_1.supabaseAdmin.rpc('submit_daily_record', {
         p_record_id: id,
         p_recorder_id: recorderId,
     });
     if (error)
         throw error;
     // RPC returns boolean; we can fetch the updated record for convenience.
-    const { data: rec, error: recErr } = await supabaseAdmin_1.default
+    const { data: rec, error: recErr } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .select('*')
         .eq('id', id);
@@ -71,7 +68,7 @@ async function submitRecord(id, recorderId) {
  * Approve a submitted record.
  */
 async function approveRecord(id, approverProfileId) {
-    const { error } = await supabaseAdmin_1.default
+    const { error } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_record_approvals')
         .insert({
         daily_flock_record_id: id,
@@ -81,7 +78,7 @@ async function approveRecord(id, approverProfileId) {
     if (error)
         throw error;
     // Update status
-    const { error: updErr } = await supabaseAdmin_1.default
+    const { error: updErr } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .update({ status: 'Approved', updated_at: new Date().toISOString() })
         .eq('id', id);
@@ -93,7 +90,7 @@ async function approveRecord(id, approverProfileId) {
  * Reject a submitted record.
  */
 async function rejectRecord(id, approverProfileId, comments) {
-    const { error } = await supabaseAdmin_1.default
+    const { error } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_record_approvals')
         .insert({
         daily_flock_record_id: id,
@@ -103,7 +100,7 @@ async function rejectRecord(id, approverProfileId, comments) {
     });
     if (error)
         throw error;
-    const { error: updErr } = await supabaseAdmin_1.default
+    const { error: updErr } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .update({ status: 'Rejected', updated_at: new Date().toISOString() })
         .eq('id', id);
@@ -115,7 +112,7 @@ async function rejectRecord(id, approverProfileId, comments) {
  * Request correction on a record (e.g., after rejection).
  */
 async function requestCorrection(id, profileId, reason) {
-    const { error } = await supabaseAdmin_1.default
+    const { error } = await supabaseAdmin_1.supabaseAdmin
         .from('recording_corrections')
         .insert({
         daily_flock_record_id: id,
@@ -125,7 +122,7 @@ async function requestCorrection(id, profileId, reason) {
     if (error)
         throw error;
     // Set status to 'Correction Requested'
-    const { error: updErr } = await supabaseAdmin_1.default
+    const { error: updErr } = await supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .update({ status: 'Correction Requested', updated_at: new Date().toISOString() })
         .eq('id', id);
@@ -139,8 +136,8 @@ async function requestCorrection(id, profileId, reason) {
 async function getFullRecord(id) {
     // Simplified: fetch core record and a few child tables.
     const [{ data: core, error: coreErr }, { data: pop, error: popErr }] = await Promise.all([
-        supabaseAdmin_1.default.from('daily_flock_records').select('*').eq('id', id).single(),
-        supabaseAdmin_1.default.from('daily_population_records').select('*').eq('daily_flock_record_id', id).single(),
+        supabaseAdmin_1.supabaseAdmin.from('daily_flock_records').select('*').eq('id', id).single(),
+        supabaseAdmin_1.supabaseAdmin.from('daily_population_records').select('*').eq('daily_flock_record_id', id).single(),
     ]);
     if (coreErr)
         throw coreErr;
@@ -152,7 +149,7 @@ async function getFullRecord(id) {
  * List records for a flock within a date range.
  */
 async function listRecords(params) {
-    let query = supabaseAdmin_1.default
+    let query = supabaseAdmin_1.supabaseAdmin
         .from('daily_flock_records')
         .select('*')
         .eq('flock_id', params.flock_id);

@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
+const express_rate_limit_1 = __importDefault(require("express-rate-limit"));
 const body_parser_1 = require("body-parser");
 const routes_1 = __importDefault(require("./routes"));
 const errorHandler_1 = require("./middleware/errorHandler");
@@ -14,11 +16,12 @@ const logger_1 = require("./utils/logger");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
 // Security & utility middlewares
+app.use((0, helmet_1.default)());
 app.use((0, cors_1.default)({
     origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
     credentials: true,
 }));
-app.use(require('express-rate-limit')({
+app.use((0, express_rate_limit_1.default)({
     windowMs: 60_000,
     max: 100,
     standardHeaders: true,

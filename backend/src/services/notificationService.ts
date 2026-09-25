@@ -48,7 +48,7 @@ export class NotificationService {
     return data;
   }
 
-  public async evaluateFarmThresholds(farmId: string, dailyMortalityCount: number, currentHdpPct: number) {
+  public async evaluateFarmThresholds(farmId: string, dailyMortalityCount: number, _currentHdpPct: number) {
     const { data: threshold } = await supabaseAdmin
       .from('farm_notification_thresholds')
       .select('*')

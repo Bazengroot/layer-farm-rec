@@ -16,7 +16,9 @@ module.exports = {
   settings: { react: { version: 'detect' } },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
   },
 };

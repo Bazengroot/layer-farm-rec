@@ -60,7 +60,7 @@ export const feedRequestService = {
   },
 
   /** Submit a draft request for approval */
-  async submitRequest(requestId: string, updaterId: string) {
+  async submitRequest(requestId: string, _updaterId: string) {
     const { error } = await supabaseAdmin
       .from('feed_requests')
       .update({

@@ -17,6 +17,7 @@ import { DailyRecordingPage } from '@/pages/DailyRecordingPage';
 import { ApprovalDashboard } from '@/pages/ApprovalDashboard';
 import { CorrectionPage } from '@/pages/CorrectionPage';
 import { EggGradeConfigPage } from '@/pages/EggGradeConfigPage';
+import { FlocksPage } from '@/pages/FlocksPage';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Construction } from 'lucide-react';

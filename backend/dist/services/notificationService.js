@@ -38,7 +38,7 @@ class NotificationService {
             throw error;
         return data;
     }
-    async evaluateFarmThresholds(farmId, dailyMortalityCount, currentHdpPct) {
+    async evaluateFarmThresholds(farmId, dailyMortalityCount, _currentHdpPct) {
         const { data: threshold } = await supabaseAdmin_1.supabaseAdmin
             .from('farm_notification_thresholds')
             .select('*')

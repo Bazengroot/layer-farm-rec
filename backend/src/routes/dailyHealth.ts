@@ -2,7 +2,6 @@
 
 import { Router } from 'express';
 import { dailyHealthController } from '../controllers/dailyHealthController';
-import { checkPermission } from '../middleware/permissionMiddleware';
 
 const router = Router();
 

@@ -1,6 +1,5 @@
 "use strict";
 // backend/src/tests/phase9_workflow.test.ts
-Object.defineProperty(exports, "__esModule", { value: true });
 describe('Phase 9 Workflow, Approvals, Correction & Evidence Unit Tests', () => {
     describe('Approval State Transitions', () => {
         it('should properly validate allowed review actions', () => {

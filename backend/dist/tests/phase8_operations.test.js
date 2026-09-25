@@ -1,6 +1,5 @@
 "use strict";
 // backend/src/tests/phase8_operations.test.ts
-Object.defineProperty(exports, "__esModule", { value: true });
 describe('Phase 8 Operations Unit Tests', () => {
     describe('Inventory Delta Calculations', () => {
         it('should correctly determine stock delta for issue transaction type', () => {

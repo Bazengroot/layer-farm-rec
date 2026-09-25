@@ -3,6 +3,7 @@
 import { Request, Response } from 'express';
 import { checkPermission } from '../middleware/permissionMiddleware';
 import { dailyHealthService } from '../services/dailyHealthService';
+import { AppError } from '../utils/AppError';
 
 /**
  * Controller for daily health record endpoints.
@@ -14,14 +15,16 @@ import { dailyHealthService } from '../services/dailyHealthService';
  */
 export const dailyHealthController = {
   async list(req: Request, res: Response) {
-    const orgId = req.user.organization_id;
     await checkPermission(req, 'health:view');
+    const orgId = req.user.organization_id;
+    if (!orgId) throw AppError.forbidden('Organization context is required', 'MISSING_ORG');
     const data = await dailyHealthService.list(orgId);
     res.json(data);
   },
   async create(req: Request, res: Response) {
-    const orgId = req.user.organization_id;
     await checkPermission(req, 'health:record');
+    const orgId = req.user.organization_id;
+    if (!orgId) throw AppError.forbidden('Organization context is required', 'MISSING_ORG');
     await dailyHealthService.create(orgId, req.body);
     res.status(201).json({ message: 'Daily health record created' });
   },

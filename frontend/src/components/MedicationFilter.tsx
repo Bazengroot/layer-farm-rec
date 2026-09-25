@@ -22,7 +22,8 @@ export const MedicationFilter: React.FC<Props> = ({ orgId, onChange }) => {
   // Fetch farms on mount
   useEffect(() => {
     const loadFarms = async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_BASE || ''}/farms?orgId=${orgId}`, {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const res = await fetch(`${baseUrl}/farms?orgId=${orgId}`, {
         method: 'GET',
         headers: { Authorization: `Bearer ${localStorage.getItem('access_token') || ''}` },
       });
@@ -43,7 +44,8 @@ export const MedicationFilter: React.FC<Props> = ({ orgId, onChange }) => {
       return;
     }
     const loadWarehouses = async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_BASE || ''}/warehouses?orgId=${orgId}&farmId=${selectedFarm}`, {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const res = await fetch(`${baseUrl}/warehouses?orgId=${orgId}&farmId=${selectedFarm}`, {
         method: 'GET',
         headers: { Authorization: `Bearer ${localStorage.getItem('access_token') || ''}` },
       });

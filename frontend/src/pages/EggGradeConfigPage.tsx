@@ -6,7 +6,7 @@ import {
   CardContent, 
   CardHeader, 
   CardTitle 
-} from '@/components/ui/card';
+} from '@/components/ui/Card';
 import { 
   Table, 
   TableBody, 
@@ -14,13 +14,13 @@ import {
   TableHead, 
   TableHeader, 
   TableRow 
-} from '@/components/ui/table';
+} from '@/components/ui/Table';
 import { 
   Button 
-} from '@/components/ui/button';
+} from '@/components/ui/Button';
 import { 
   Input 
-} from '@/components/ui/input';
+} from '@/components/ui/Input';
 import { 
   Label 
 } from '@/components/ui/label';
@@ -34,14 +34,14 @@ import {
 import { 
   Alert, 
   AlertDescription 
-} from '@/components/ui/alert';
+} from '@/components/ui/Alert';
 import { 
   Plus, 
   Save, 
   Search, 
   Filter 
 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/components/ui/Badge';
 
 
 interface GradeConfig {

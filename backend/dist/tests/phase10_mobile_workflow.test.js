@@ -1,6 +1,5 @@
 "use strict";
 // backend/src/tests/phase10_mobile_workflow.test.ts
-Object.defineProperty(exports, "__esModule", { value: true });
 describe('Phase 10 Mobile Farm Operations & Usability End-to-End Workflow', () => {
     describe('Full Operational Workflow Chain', () => {
         it('should complete staff recording -> draft -> submit -> review -> KPI update', () => {

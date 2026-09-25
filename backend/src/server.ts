@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import rateLimit from 'express-rate-limit';
 import { json, urlencoded } from 'body-parser';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
@@ -12,11 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Security & utility middlewares
+app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
   credentials: true,
 }));
-app.use(require('express-rate-limit')({
+app.use(rateLimit({
   windowMs: 60_000,
   max: 100,
   standardHeaders: true,

@@ -37,7 +37,7 @@ exports.feedRequestService = {
         return data;
     },
     /** Submit a draft request for approval */
-    async submitRequest(requestId, updaterId) {
+    async submitRequest(requestId, _updaterId) {
         const { error } = await supabaseAdmin_1.supabaseAdmin
             .from('feed_requests')
             .update({

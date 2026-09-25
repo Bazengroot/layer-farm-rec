@@ -1,7 +1,7 @@
 // backend/src/routes/eggProduction.ts
 
 import { Router } from 'express';
-import { eggProductionService } from '../services/eggProductionService';
+import eggProductionService from '../services/eggProductionService';
 import { checkPermission } from '../middleware/permissionMiddleware';
 
 const router = Router();

@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const health_1 = require("./health");
 const performance_1 = require("./performance");
-const auth_1 = __importDefault(require("./auth"));
 const dailyRecordController_1 = __importDefault(require("../controllers/dailyRecordController"));
 const eggProduction_1 = __importDefault(require("./eggProduction"));
 const eggGrading_1 = __importDefault(require("./eggGrading"));
@@ -25,7 +24,7 @@ const router = (0, express_1.Router)();
 // Mount sub-routers
 router.use('/health', health_1.healthRouter);
 router.use('/performance', performance_1.performanceRouter);
-router.use('/auth', auth_1.default);
+// Note: /auth endpoints are handled client-side via Supabase Auth SDK
 router.use('/daily-records', dailyRecordController_1.default);
 router.use('/egg', eggProduction_1.default);
 router.use('/egg', eggGrading_1.default);

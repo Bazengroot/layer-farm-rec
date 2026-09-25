@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { healthRouter } from './health';
 import { performanceRouter } from './performance';
-import authRouter from './auth';
 import dailyRecordRouter from '../controllers/dailyRecordController';
 import eggProductionRouter from './eggProduction';
 import eggGradingRouter from './eggGrading';
@@ -22,7 +21,7 @@ const router = Router();
 // Mount sub-routers
 router.use('/health', healthRouter);
 router.use('/performance', performanceRouter);
-router.use('/auth', authRouter);
+// Note: /auth endpoints are handled client-side via Supabase Auth SDK
 router.use('/daily-records', dailyRecordRouter);
 router.use('/egg', eggProductionRouter);
 router.use('/egg', eggGradingRouter);
