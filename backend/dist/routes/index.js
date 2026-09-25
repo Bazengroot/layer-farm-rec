@@ -1,0 +1,44 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const health_1 = require("./health");
+const performance_1 = require("./performance");
+const auth_1 = __importDefault(require("./auth"));
+const dailyRecordController_1 = __importDefault(require("../controllers/dailyRecordController"));
+const eggProduction_1 = __importDefault(require("./eggProduction"));
+const eggGrading_1 = __importDefault(require("./eggGrading"));
+const eggQuality_1 = __importDefault(require("./eggQuality"));
+const eggDispatch_1 = __importDefault(require("./eggDispatch"));
+const eggInventory_1 = __importDefault(require("./eggInventory"));
+const feedMaster_1 = __importDefault(require("../routes/feedMaster"));
+const feedRequest_1 = __importDefault(require("../routes/feedRequest"));
+const flock_1 = __importDefault(require("./flock"));
+const dashboard_1 = require("./dashboard");
+const report_1 = require("./report");
+const operations_1 = require("./operations");
+const workflow_1 = require("./workflow");
+const mobile_1 = require("./mobile");
+const router = (0, express_1.Router)();
+// Mount sub-routers
+router.use('/health', health_1.healthRouter);
+router.use('/performance', performance_1.performanceRouter);
+router.use('/auth', auth_1.default);
+router.use('/daily-records', dailyRecordController_1.default);
+router.use('/egg', eggProduction_1.default);
+router.use('/egg', eggGrading_1.default);
+router.use('/egg', eggQuality_1.default);
+router.use('/egg', eggDispatch_1.default);
+router.use('/egg', eggInventory_1.default);
+router.use('/feed', feedMaster_1.default);
+router.use('/feed', feedRequest_1.default);
+router.use('/flocks', flock_1.default);
+router.use('/dashboard', dashboard_1.dashboardRouter);
+router.use('/reports', report_1.reportRouter);
+router.use('/operations', operations_1.operationsRouter);
+router.use('/workflow', workflow_1.workflowRouter);
+router.use('/mobile', mobile_1.mobileRouter);
+exports.default = router;
+//# sourceMappingURL=index.js.map
