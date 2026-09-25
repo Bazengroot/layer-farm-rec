@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables */
+:root {
+  --color-brand-primary: #2563eb;
+  --color-brand-secondary: #1e40af;
+  --color-brand-accent: #60a5fa;
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-border: #e2e8f0;
+  --sidebar-width: 260px;
+  --topbar-height: 64px;
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Utility layer additions */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-brand-600 rounded-lg hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-brand-700 bg-brand-50 border border-brand-200 rounded-lg hover:bg-brand-100 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 disabled:opacity-50 transition-colors;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 rounded-lg hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2 disabled:opacity-50 transition-colors;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 transition-colors;
+  }
+  .input-field {
+    @apply w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 disabled:bg-slate-50 disabled:cursor-not-allowed transition-colors;
+  }
+  .card {
+    @apply bg-white rounded-xl border border-slate-200 shadow-card p-4;
+  }
+  .form-label {
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
+  }
+  .form-error {
+    @apply text-xs text-red-600 mt-1;
+  }
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer;
+  }
+  .nav-item-active {
+    @apply bg-brand-50 text-brand-700;
+  }
+  .nav-item-inactive {
+    @apply text-slate-600 hover:bg-slate-100 hover:text-slate-900;
+  }
+}
