@@ -5,27 +5,56 @@
 -- ============================================================================
 
 -- 1. ENUMS
-DO $$ 
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'farm_type') THEN
-        CREATE TYPE farm_type AS ENUM ('Layer Farm', 'Pullet Farm', 'Breeder Farm', 'Hatchery', 'Feedmill', 'Other');
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'house_type') THEN
-        CREATE TYPE house_type AS ENUM ('Open House', 'Closed House', 'Environmentally Controlled House', 'Pullets House', 'Layer House');
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'cage_system') THEN
-        CREATE TYPE cage_system AS ENUM ('Conventional Cage', 'Enriched Cage', 'Aviary', 'Floor System', 'Other');
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'flock_status') THEN
-        CREATE TYPE flock_status AS ENUM ('Planned', 'Active', 'Transferred', 'Closed', 'Archived');
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'production_cycle') THEN
-        CREATE TYPE production_cycle AS ENUM ('Pullet', 'Rearing', 'Laying', 'Spent Hen');
-    END IF;
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'transaction_type') THEN
-        CREATE TYPE transaction_type AS ENUM ('Initial Placement', 'Addition', 'Mortality', 'Culling', 'Transfer In', 'Transfer Out', 'Adjustment', 'Final Closing');
-    END IF;
-END $$;
+CREATE TYPE farm_type AS ENUM (
+  'Layer Farm',
+  'Pullet Farm',
+  'Breeder Farm',
+  'Hatchery',
+  'Feedmill',
+  'Other'
+);
+
+CREATE TYPE house_type AS ENUM (
+  'Open House',
+  'Closed House',
+  'Environmentally Controlled House',
+  'Pullets House',
+  'Layer House'
+);
+
+CREATE TYPE cage_system AS ENUM (
+  'Conventional Cage',
+  'Enriched Cage',
+  'Aviary',
+  'Floor System',
+  'Other'
+);
+
+CREATE TYPE flock_status AS ENUM (
+  'Planned',
+  'Active',
+  'Transferred',
+  'Closed',
+  'Archived'
+);
+
+CREATE TYPE production_cycle AS ENUM (
+  'Pullet',
+  'Rearing',
+  'Laying',
+  'Spent Hen'
+);
+
+CREATE TYPE transaction_type AS ENUM (
+  'Initial Placement',
+  'Addition',
+  'Mortality',
+  'Culling',
+  'Transfer In',
+  'Transfer Out',
+  'Adjustment',
+  'Final Closing'
+);
 
 -- 2. CORE HIERARCHY TABLES
 

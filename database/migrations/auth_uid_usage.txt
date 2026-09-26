@@ -1,0 +1,172 @@
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_units ON medication_units FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_units ON medication_units FOR ALL USING (has_permission(auth.uid(),'medication:manage')) WITH CHECK (has_permission(auth.uid(),'medication:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_products ON medication_products FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_products ON medication_products FOR ALL USING (has_permission(auth.uid(),'medication:manage')) WITH CHECK (has_permission(auth.uid(),'medication:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_vets ON veterinarians FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vets ON veterinarians FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccines ON vaccines FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccines ON vaccines FOR ALL USING (has_permission(auth.uid(),'vaccination:manage')) WITH CHECK (has_permission(auth.uid(),'vaccination:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_diseases ON diseases FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_diseases ON diseases FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_symptoms ON symptoms FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_symptoms ON symptoms FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_treatment_protocols ON treatment_protocols FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_treatment_protocols ON treatment_protocols FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_withdrawal_overrides ON withdrawal_overrides FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_withdrawal_overrides ON withdrawal_overrides FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccine_schedules ON vaccine_schedules FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccine_schedules ON vaccine_schedules FOR ALL USING (has_permission(auth.uid(),'vaccination:manage')) WITH CHECK (has_permission(auth.uid(),'vaccination:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_biosecurity_templates ON biosecurity_checklist_templates FOR SELECT USING (has_permission(auth.uid(),'biosecurity:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_biosecurity_templates ON biosecurity_checklist_templates FOR ALL USING (has_permission(auth.uid(),'biosecurity:manage')) WITH CHECK (has_permission(auth.uid(),'biosecurity:manage'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_daily_health ON daily_health_records FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_daily_health ON daily_health_records FOR ALL USING (has_permission(auth.uid(),'health:record')) WITH CHECK (has_permission(auth.uid(),'health:record'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_administration ON medication_administrations FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_administration ON medication_administrations FOR ALL USING (has_permission(auth.uid(),'medication:prescribe')) WITH CHECK (has_permission(auth.uid(),'medication:prescribe'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccination_records ON vaccination_records FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccination_records ON vaccination_records FOR ALL USING (has_permission(auth.uid(),'vaccination:record')) WITH CHECK (has_permission(auth.uid(),'vaccination:record'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY select_biosecurity_records ON biosecurity_checklist_records FOR SELECT USING (has_permission(auth.uid(),'biosecurity:view'));
+.\database\migrations\policies_security.txt:.\database\migrations\028_health_rls.sql:CREATE POLICY manage_biosecurity_records ON biosecurity_checklist_records FOR ALL USING (has_permission(auth.uid(),'biosecurity:manage')) WITH CHECK (has_permission(auth.uid(),'biosecurity:manage'));
+.\database\migrations\032_kpi_rls.sql:-- Assumes permission helper function has_permission(auth.uid(), '<perm>') exists.
+.\database\migrations\032_kpi_rls.sql:    FOR SELECT USING (has_permission(auth.uid(), 'view_kpi'));
+.\database\migrations\032_kpi_rls.sql:    FOR SELECT USING (has_permission(auth.uid(), 'view_kpi'));
+.\database\migrations\032_kpi_rls.sql:    FOR SELECT USING (has_permission(auth.uid(), 'view_kpi'));
+.\database\migrations\032_kpi_rls.sql:    FOR SELECT USING (has_permission(auth.uid(), 'view_kpi'));
+.\database\migrations\032_kpi_rls.sql:    FOR INSERT, UPDATE, DELETE USING (has_permission(auth.uid(), 'manage_kpi_config'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_units ON medication_units FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_units ON medication_units FOR ALL USING (has_permission(auth.uid(),'medication:manage')) WITH CHECK (has_permission(auth.uid(),'medication:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_products ON medication_products FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_products ON medication_products FOR ALL USING (has_permission(auth.uid(),'medication:manage')) WITH CHECK (has_permission(auth.uid(),'medication:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_vets ON veterinarians FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vets ON veterinarians FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccines ON vaccines FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccines ON vaccines FOR ALL USING (has_permission(auth.uid(),'vaccination:manage')) WITH CHECK (has_permission(auth.uid(),'vaccination:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_diseases ON diseases FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_diseases ON diseases FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_symptoms ON symptoms FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_symptoms ON symptoms FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_treatment_protocols ON treatment_protocols FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_treatment_protocols ON treatment_protocols FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_withdrawal_overrides ON withdrawal_overrides FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_withdrawal_overrides ON withdrawal_overrides FOR ALL USING (has_permission(auth.uid(),'health:manage')) WITH CHECK (has_permission(auth.uid(),'health:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccine_schedules ON vaccine_schedules FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccine_schedules ON vaccine_schedules FOR ALL USING (has_permission(auth.uid(),'vaccination:manage')) WITH CHECK (has_permission(auth.uid(),'vaccination:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_biosecurity_templates ON biosecurity_checklist_templates FOR SELECT USING (has_permission(auth.uid(),'biosecurity:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_biosecurity_templates ON biosecurity_checklist_templates FOR ALL USING (has_permission(auth.uid(),'biosecurity:manage')) WITH CHECK (has_permission(auth.uid(),'biosecurity:manage'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_daily_health ON daily_health_records FOR SELECT USING (has_permission(auth.uid(),'health:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_daily_health ON daily_health_records FOR ALL USING (has_permission(auth.uid(),'health:record')) WITH CHECK (has_permission(auth.uid(),'health:record'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_med_administration ON medication_administrations FOR SELECT USING (has_permission(auth.uid(),'medication:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_med_administration ON medication_administrations FOR ALL USING (has_permission(auth.uid(),'medication:prescribe')) WITH CHECK (has_permission(auth.uid(),'medication:prescribe'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_vaccination_records ON vaccination_records FOR SELECT USING (has_permission(auth.uid(),'vaccination:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_vaccination_records ON vaccination_records FOR ALL USING (has_permission(auth.uid(),'vaccination:record')) WITH CHECK (has_permission(auth.uid(),'vaccination:record'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY select_biosecurity_records ON biosecurity_checklist_records FOR SELECT USING (has_permission(auth.uid(),'biosecurity:view'));
+.\database\migrations\028_health_rls.sql:CREATE POLICY manage_biosecurity_records ON biosecurity_checklist_records FOR ALL USING (has_permission(auth.uid(),'biosecurity:manage')) WITH CHECK (has_permission(auth.uid(),'biosecurity:manage'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'receive_feed')) WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'create_feed_request'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'approve_feed_request')) WITH CHECK (has_permission(auth.uid(), 'approve_feed_request'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'approve_feed_request'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'receive_feed')) WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'receive_feed')) WITH CHECK (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'receive_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_feed_inventory')) WITH CHECK (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_feed_inventory'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'issue_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'issue_feed')) WITH CHECK (has_permission(auth.uid(), 'issue_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'issue_feed'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'record_feed_consumption'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'record_feed_consumption')) WITH CHECK (has_permission(auth.uid(), 'record_feed_consumption'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'record_feed_consumption'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_procurement')) WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_procurement')) WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_procurement')) WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR SELECT USING (has_permission(auth.uid(), 'view_feed_reports'));
+.\database\migrations\023_feed_rls.sql:  FOR INSERT WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR UPDATE USING (has_permission(auth.uid(), 'manage_procurement')) WITH CHECK (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\023_feed_rls.sql:  FOR DELETE USING (has_permission(auth.uid(), 'manage_procurement'));
+.\database\migrations\005_audit_triggers.sql:  SELECT id INTO v_user_id FROM profiles WHERE auth_uid = auth.uid() LIMIT 1;
+.\database\migrations\010_egg_rls.sql:  FOR SELECT USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR INSERT WITH CHECK (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR UPDATE USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())) WITH CHECK (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR DELETE USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR SELECT USING (EXISTS (SELECT 1 FROM egg_production_records r WHERE r.id = egg_production_breakdown.egg_production_record_id AND r.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())));
+.\database\migrations\010_egg_rls.sql:  FOR INSERT WITH CHECK (EXISTS (SELECT 1 FROM egg_production_records r WHERE r.id = NEW.egg_production_record_id AND r.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())));
+.\database\migrations\010_egg_rls.sql:  FOR UPDATE USING (EXISTS (SELECT 1 FROM egg_production_records r WHERE r.id = egg_production_breakdown.egg_production_record_id AND r.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()))) WITH CHECK (EXISTS (SELECT 1 FROM egg_production_records r WHERE r.id = NEW.egg_production_record_id AND r.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())));
+.\database\migrations\010_egg_rls.sql:  FOR DELETE USING (EXISTS (SELECT 1 FROM egg_production_records r WHERE r.id = egg_production_breakdown.egg_production_record_id AND r.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())));
+.\database\migrations\010_egg_rls.sql:  FOR SELECT USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR INSERT WITH CHECK (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR UPDATE USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())) WITH CHECK (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\010_egg_rls.sql:  FOR DELETE USING (organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid()));
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.organization_id = daily_flock_records.organization_id
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.organization_id = daily_flock_records.organization_id
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'create_recording')
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM profiles p WHERE p.id = auth.uid() AND p.organization_id = daily_flock_records.organization_id
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'edit_recording')
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = daily_population_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = daily_population_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'edit_recording')
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = daily_population_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'edit_recording')
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = mortality_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = mortality_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'edit_recording')
+.\database\migrations\009_daily_records_rls.sql:      SELECT 1 FROM daily_flock_records dfr WHERE dfr.id = mortality_records.daily_flock_record_id AND dfr.organization_id = (SELECT organization_id FROM profiles WHERE id = auth.uid())
+.\database\migrations\009_daily_records_rls.sql:    ) AND has_permission(auth.uid(), 'edit_recording')
+.\database\migrations\002_schema_temp.txt:  SELECT organization_id FROM profiles WHERE auth_uid = auth.uid() LIMIT 1;
+.\database\migrations\002_schema_temp.txt:    WHERE p.auth_uid = auth.uid() AND r.code = 'SUPER_ADMIN'
+.\database\migrations\002_schema_temp.txt:  FOR UPDATE USING (is_super_admin() OR auth_uid = auth.uid());
+.\database\migrations\002_schema.sql:  SELECT organization_id FROM profiles WHERE auth_uid = auth.uid() LIMIT 1;
+.\database\migrations\002_schema.sql:    WHERE p.auth_uid = auth.uid() AND r.code = 'SUPER_ADMIN'
+.\database\migrations\002_schema.sql:  FOR UPDATE USING (is_super_admin() OR auth_uid = auth.uid());
